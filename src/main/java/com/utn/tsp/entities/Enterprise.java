@@ -56,7 +56,7 @@ public class Enterprise implements Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "enterprise_designation", length = 128)
+	@Column(name = "enterprise_designation", length = 128, unique = true)
 	public String getDesignation() {
 		return designation;
 	}
