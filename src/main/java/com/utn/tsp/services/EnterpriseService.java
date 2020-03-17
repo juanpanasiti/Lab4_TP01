@@ -52,7 +52,12 @@ public class EnterpriseService implements ObjectService<EnterpriseDTO>{
 	public EnterpriseDTO save(EnterpriseDTO t) {
 		Enterprise enterprise = this.dtoToEntity(t);
 		
-		repository.save(enterprise);
+		try {			
+			repository.save(enterprise);
+		} catch (Exception e) {
+			System.out.println("Bad request.");
+		}
+		
 		t.setId(enterprise.getId());
 		
 		return t;
@@ -78,11 +83,11 @@ public class EnterpriseService implements ObjectService<EnterpriseDTO>{
 			temp.setEmail(t.getEmail());
 			
 			repository.save(temp);
-			t.setId(temp.getId());
 			
 		} catch (Exception e) {
-			System.out.println("No existe la empresa en la base de datos.");
+			System.out.println("Bad request.");
 		}
+		t.setId(temp.getId());
 		return t;
 	}
 

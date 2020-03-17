@@ -1,12 +1,14 @@
 package com.utn.tsp.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 /*
  * @author Juan M. Panasiti
@@ -25,6 +27,7 @@ public class Enterprise implements Serializable {
 	private double longitude;
 	private String address;
 	private String email;
+	private List<Notice> notices;
 
 	// Constructors
 	public Enterprise() {
@@ -126,6 +129,15 @@ public class Enterprise implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@OneToMany(mappedBy = "enterprise")
+	public List<Notice> getNotices() {
+		return notices;
+	}
+
+	public void setNotices(List<Notice> notices) {
+		this.notices = notices;
 	}
 
 }

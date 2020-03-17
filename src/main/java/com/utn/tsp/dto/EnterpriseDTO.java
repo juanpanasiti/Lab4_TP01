@@ -21,7 +21,7 @@ public class EnterpriseDTO implements Serializable{
 	// Constructors
 	public EnterpriseDTO(String designation, String phone, String attention_time, String about_us, double latitude,
 			double longitude, String address, String email) {
-		super();
+		
 		this.designation = designation;
 		this.phone = phone;
 		this.attention_time = attention_time;
@@ -33,7 +33,7 @@ public class EnterpriseDTO implements Serializable{
 	}
 
 	public EnterpriseDTO() {
-		super();
+		
 	}
 
 	//Getters and Setters
