@@ -57,6 +57,7 @@ public class EnterpriseController implements ObjectController<EnterpriseDTO> {
 	}
 
 	@Override
+	@CrossOrigin("*")
 	@PutMapping("/{id}")
 	public ResponseEntity update(@RequestBody EnterpriseDTO t, @PathVariable int id) {
 		EnterpriseDTO temp = service.update(t, id);
@@ -69,6 +70,7 @@ public class EnterpriseController implements ObjectController<EnterpriseDTO> {
 	}
 
 	@Override
+	@CrossOrigin("*")
 	@DeleteMapping("/{id}")
 	public ResponseEntity delete(@PathVariable int id) {
 		boolean det = service.delete(id);
