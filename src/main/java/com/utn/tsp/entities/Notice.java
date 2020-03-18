@@ -97,11 +97,19 @@ public class Notice implements Serializable {
 
 	@Column(name = "notice_published")
 	public char getPublished() {
-		return published;
+		char c = String.valueOf(published).toUpperCase().toCharArray()[0];
+		if(c != 'Y') {
+			c = 'N';
+		}
+		return c;
 	}
 
 	public void setPublished(char published) {
-		this.published = published;
+		char c = String.valueOf(published).toUpperCase().toCharArray()[0];
+		if(c != 'Y') {
+			c = 'N';
+		}
+		this.published = c;
 	}
 
 	@Column(name = "notice_publication_date")
