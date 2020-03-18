@@ -45,6 +45,7 @@ public class EnterpriseController implements ObjectController<EnterpriseDTO> {
 	}
 
 	@Override
+	@CrossOrigin("*")
 	@PostMapping(path = "/",consumes = "application/json")
 	public ResponseEntity save(@RequestBody EnterpriseDTO t) {
 		EnterpriseDTO temp = service.save(t);
